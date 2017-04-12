@@ -11,10 +11,11 @@
 		
 		<?php foreach ($birthdays as $birthday) { ?>
 		<tr>
-			<td><?= $birthday['birthday_id']; ?></td>
-			<td><?= $birthday['birthday_firstname']; ?></td>
-			<td><?= $birthday['birthday_day']; ?></td>
-			<td><?= $birthday['birthdayt_year']; ?></td>
+			<td><?= $birthdays['id']; ?></td>
+			<td><?= $birthdays['person']; ?></td>
+			<td><?= $birthdays['day']; ?></td>
+			<td><?= $birthdays['month']; ?></td>
+			<td><?= $birthdays['year']; ?></td>
 			<td><a href="<?= URL ?>birthday/edit/<?= $birthday['birthday_id'] ?>">Edit</a></td>
 			<td><a href="<?= URL ?>birthday/delete/<?= $birthday['birthday_id'] ?>">Delete</a></td>
 		</tr>

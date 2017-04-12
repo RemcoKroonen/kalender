@@ -1,6 +1,6 @@
 <?php
 
-function getStudent($id) 
+function getBirthdays($id) 
 {
 	$db = openDatabaseConnection();
 
@@ -27,7 +27,7 @@ function getAllBirthdays()
 	return $query->fetchAll();
 }
 
-function editStudent() 
+function editBirthdays() 
 {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
 	$day = isset($_POST['day']) ? $_POST['day'] : null;
@@ -53,7 +53,7 @@ function editStudent()
 	return true;
 }
 
-function deleteStudent($id = null) 
+function deleteBirthdays($id = null) 
 {
 	if (!$id) {
 		return false;
@@ -71,7 +71,7 @@ function deleteStudent($id = null)
 	return true;
 }
 
-function createStudent() 
+function createBirthdays() 
 {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
 	$day = isset($_POST['day']) ? $_POST['day'] : null;
