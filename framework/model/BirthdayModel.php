@@ -4,7 +4,7 @@ function getStudent($id)
 {
 	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM students WHERE student_id = :id";
+	$sql = "SELECT * FROM birthdays WHERE birthday_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		":id" => $id));
@@ -14,11 +14,11 @@ function getStudent($id)
 	return $query->fetch();
 }
 
-function getAllStudents() 
+function getAllBirthdays() 
 {
 	$db = openDatabaseConnection();
 
-	$sql = "SELECT * FROM students";
+	$sql = "SELECT * FROM birthdays";
 	$query = $db->prepare($sql);
 	$query->execute();
 
@@ -30,22 +30,22 @@ function getAllStudents()
 function editStudent() 
 {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
-	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
-	$gender = isset($_POST['gender']) ? $_POST['gender'] : null;
+	$day = isset($_POST['day']) ? $_POST['day'] : null;
+	$year = isset($_POST['year']) ? $_POST['year'] : null;
 	$id = isset($_POST['id']) ? $_POST['id'] : null;
 	
-	if (strlen($firstname) == 0 || strlen($lastname) == 0 || strlen($gender) == 0) {
+	if (strlen($firstname) == 0 || strlen($day) == 0 || strlen($year) == 0) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
 
-	$sql = "UPDATE students SET student_firstname = :firstname, student_lastname = :lastname, student_gender = :gender WHERE student_id = :id";
+	$sql = "UPDATE birthday SET birthday_firstname = :firstname, birthday_day = :day, birthday_year = :year WHERE birthday_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':firstname' => $firstname,
-		':lastname' => $lastname,
-		':gender' => $gender,
+		':day' => $lastname,
+		':year' => $gender,
 		':id' => $id));
 
 	$db = null;
@@ -61,7 +61,7 @@ function deleteStudent($id = null)
 	
 	$db = openDatabaseConnection();
 
-	$sql = "DELETE FROM students WHERE student_id=:id ";
+	$sql = "DELETE FROM birthday WHERE birthday_id=:id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));
@@ -74,21 +74,21 @@ function deleteStudent($id = null)
 function createStudent() 
 {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
-	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
-	$gender = isset($_POST['gender']) ? $_POST['gender'] : null;
+	$day = isset($_POST['day']) ? $_POST['day'] : null;
+	$year = isset($_POST['year']) ? $_POST['year'] : null;
 	
-	if (strlen($firstname) == 0 || strlen($lastname) == 0 || strlen($gender) == 0) {
+	if (strlen($firstname) == 0 || strlen($day) == 0 || strlen($year) == 0) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
 
-	$sql = "INSERT INTO students(student_firstname, student_lastname, student_gender) VALUES (:firstname, :lastname, :gender)";
+	$sql = "INSERT INTO birthday(birthday_firstname, birthday_day, birthday_year) VALUES (:firstname, :day, :year)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':firstname' => $firstname,
-		':lastname' => $lastname,
-		':gender' => $gender));
+		':day' => $day,
+		':year' => $year));
 
 	$db = null;
 	

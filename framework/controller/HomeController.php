@@ -2,5 +2,5 @@
 
 function index()
 {
-	render("home/index");	
+	render("birthday/index");	
 }

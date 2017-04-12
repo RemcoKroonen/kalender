@@ -1,17 +1,17 @@
 <?php
 
-require(ROOT . "model/StudentModel.php");
+require(ROOT . "model/BirthdayModel.php");
 
 function index()
 {
-	render("student/index", array(
-		'students' => getAllStudents()
+	render("birthday/index", array(
+		'birthdays' => getAllBirthdays()
 	));
 }
 
 function create()
 {
-	render("student/create");
+	render("birthday/create");
 }
 
 function createSave()
@@ -21,7 +21,7 @@ function createSave()
 		exit();
 	}
 
-	header("Location:" . URL . "student/index");
+	header("Location:" . URL . "birthday/index");
 }
 
 function edit($id)
@@ -38,7 +38,7 @@ function editSave()
 		exit();
 	}
 
-	header("Location:" . URL . "student/index");
+	header("Location:" . URL . "birthday/index");
 } 
 
 function delete($id)
@@ -48,5 +48,5 @@ function delete($id)
 		exit();
 	}
 
-	header("Location:" . URL . "student/index");
+	header("Location:" . URL . "birthday/index");
 }
