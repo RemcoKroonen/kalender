@@ -2,23 +2,25 @@
 	<table border="1">
 		<tr>
 			<th>#</th>
-			<th>Voornaam</th>
-			<th>Achternaam</th>
-			<th>Geslacht</th>
+			<th>Person</th>
+			<th>Day</th>
+			<th>Month</th>
+			<th>Year</th>
 			<th colspan="2">Actie</th>
 		</tr>
 		
-		<?php foreach ($students as $student) { ?>
+		<?php foreach ($birthdays as $birthday) { ?>
 		<tr>
-			<td><?= $student['student_id']; ?></td>
-			<td><?= $student['student_firstname']; ?></td>
-			<td><?= $student['student_lastname']; ?></td>
-			<td><?= $student['student_gender']; ?></td>
-			<td><a href="<?= URL ?>student/edit/<?= $student['student_id'] ?>">Edit</a></td>
-			<td><a href="<?= URL ?>student/delete/<?= $student['student_id'] ?>">Delete</a></td>
+			<td><?= $birthday['id']; ?></td>
+			<td><?= $birthday['person']; ?></td>
+			<td><?= $birthday['day']; ?></td>
+			<td><?= $birthday['month']; ?></td>
+			<td><?= $birthday['year']; ?></td>
+			<td><a href="<?= URL ?>birthday/edit/<?= $birthday['id'] ?>">Edit</a></td>
+			<td><a href="<?= URL ?>birthday/delete/<?= $birthday['id'] ?>">Delete</a></td>
 		</tr>
 		<?php } ?>
 
 	</table>
-	<a href="<?= URL ?>student/create">Toevoegen</a>
+	<a href="<?= URL ?>birthday/create">Toevoegen</a>
 </div>
