@@ -16,7 +16,7 @@ function create()
 
 function createSave()
 {
-	if (!createStudent()) {
+	if (!createBirthday()) {
 		header("Location:" . URL . "error/index");
 		exit();
 	}
@@ -26,7 +26,7 @@ function createSave()
 
 function edit($id)
 {
-	render("student/edit", array(
+	render("birthday/edit", array(
 		'birthdays' => getBirthday($id)
 	));
 }

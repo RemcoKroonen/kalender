@@ -2,7 +2,7 @@
     <h1>Toevoegen</h1>
     <form action="<?= URL ?>birthday/createSave" method="post">
 
-        <input type="text" name="person" placeholder="John Doe">
+        <input type="text" name="person" placeholder="Name">
         <select name="day">
         <?php for ($i = 1; $i <= 31; $i++) {
             echo "<option value=\"$i\">$i</option>";

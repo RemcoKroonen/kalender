@@ -1,18 +1,40 @@
+</div>
 <div class="container">
-	<h1>Edit</h1>
-	<form action="<?= URL ?>student/editSave" method="post">
-	
-		<input type="text" name="firstname" value="<?= $student['student_firstname']; ?>">
-		<input type="text" name="lastname" value="<?= $student['student_lastname']; ?>">
-		
-		<select name="gender">
-			<option value="male" <?php if ($student['student_gender'] == "male") { echo "selected=\"true\""; } ?>>Male</option>
-			<option value="female" <?php if ($student['student_gender'] == "female") { echo "selected=\"true\""; } ?>>Female</option>	
-		</select>
+    <h1>Edit</h1>
+    <form action="<?= URL ?>birthday/editSave" method="post">
 
-		<input type="hidden" name="id" value="<?= $student['student_id']; ?>">
-		<input type="submit" value="Verzenden">
-	
-	</form>
+        <input type="text" name="person" value="<?= $birthdays['person']; ?>">
+        <select name="day">
+            <?php for ($i = 1; $i <= 31; $i++) {
+            echo "<option value=\"$i\">$i</option>";
+        } ?>
+        </select>
+
+        <select name="month">
+            <option value="1">Januari</option>
+            <option value="2">Februari</option>
+            <option value="3">Maart</option>
+            <option value="4">April</option>
+            <option value="5">Mei</option>
+            <option value="6">Juni</option>
+            <option value="7">Juli</option>
+            <option value="8">Augustus</option>
+            <option value="9">September</option>
+            <option value="10">Oktober</option>
+            <option value="11">Novermber</option>
+            <option value="12">December</option>
+        </select>
+
+        <select name="year">
+        <?php for ($a = 1900; $a <= 2017; $a++) {
+            echo"<option value=\"$a\">$a</option>";
+        }
+         ?>
+        </select>
+
+        <input type="hidden" name="id" value="<?= $birthdays['id']; ?>">
+        <input type="submit" value="Verzenden">
+
+    </form>
 
 </div>
